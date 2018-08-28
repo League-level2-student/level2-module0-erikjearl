@@ -24,23 +24,34 @@ void draw() {
   //6. set the background color with background(r, g, b);
     background(300,100,200);
   //7. set the color for your graph
-       color(50,255,100);
+       color(0,0,0);
   //8. draw a rectangle for each int in your array.
        for(int i=0; i<nList.length; i++){
-        rect(i,nList[i], 1, -i); 
+        rect(i,height, 1, -nList[i]); 
   //   the x value will be the element of the int
+  
   //   the y value will the height variable
   //   the width is 1
-  //   the height is negative the value of the int at that element in the array
-       }
+  //   the height is negative the value of the int at that element in the array 
+     }
 
   //9. call the stepSort method
-    
+   stepSort(nList);
   //10. extract the code that randomizes the array into a method.
 
   //11. call the method you made in step 10 when the mouse is pressed
-
+   if( mousePressed){
+   randomize();
+   }
+    
 }
+
+void randomize(){
+  for (int i=0; i < nList.length; i++){
+   nList[i] = (int) random(0, height);
+  }
+}
+
 
 void stepSort(int[] arr) {
   for (int i = 1; i < arr.length; i++) {
